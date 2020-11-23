@@ -94,45 +94,7 @@ export default {
           return result.books;
         },
       },
-      // ping: {
-      //     query : gql`query PingMessage($message: String!){
-      //       ping(message: $message)
-      //     }`,
-      //
-      //   variables: {
-      //       message : 'hi'
-      //   }
-      // },
-      //
-      // //Reactive query
-      // featuredTag: {
-      //   query(){
-      //     if(this.showTag === 'random'){
-      //       return gql`{
-      //        randomTag{
-      //         id
-      //         label
-      //         type
-      //        }
-      //       }`
-      //     }
-      //   }
-      // }
     },
-  // methods : {
-  //     updateName(){
-  //       this.$apollo.mutate({
-  //         mutation: gql`
-  //          mutation($name : String!){
-  //             updateAlligatorName(name : $name)
-  //          }
-  //         `,
-  //         variables : {name : this.temporaryName}
-  //       }).then(res => {
-  //         console.log(res);
-  //       })
-  //     }
-  // }
 }
 </script>
 

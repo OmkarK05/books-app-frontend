@@ -3,9 +3,8 @@
     class="container"
     :class="extend ? 'open-sidebar' : 'close-sidebar'"
   >
-    <vs-row
-      class="main-row"
-      vs-type="flex"
+    <vs-row 
+      class="top-row"
       vs-justify="center"
       vs-align="flex-start"
     >
@@ -38,6 +37,8 @@
           </span>
         </div>
       </vs-col>
+    </vs-row>
+    <vs-row class="bottom-row">
       <vs-col
         class="center"
         vs-w="12"
@@ -221,17 +222,15 @@ export default {
 }
 
 .container {
-
     position: fixed;
     height: 100%;
     right: 0;
     background: #FF6161;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
     transition: all 0.5s linear;
-    border-radius: 30px;
+    border-radius: 0px;
 
     @include Desktop() {
         left: 0;
@@ -239,8 +238,13 @@ export default {
 
 }
 
+.bottom-row{
+  margin-top: 1rem;
+}
+
+
 .center {
-    height: auto;
+    height: fit-content;
 }
 
 .content {
