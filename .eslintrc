@@ -1,0 +1,55 @@
+{
+    "rules": {
+      "template-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "vue/no-v-html": "off",
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 120
+        }
+      ],
+      "brace-style": [
+        "error",
+        "1tbs",
+        {
+          "allowSingleLine": true
+        }
+      ],
+      "vue/html-closing-bracket-newline": [
+        "error",
+        {
+          "singleline": "never",
+          "multiline": "always"
+        }
+      ],
+      "vue/no-unused-components": [
+        "error",
+        {
+          "ignoreWhenBindingPresent": true
+        }
+      ],
+      "vue/component-name-in-template-casing": [
+        "error",
+        "kebab-case",
+        {
+          "ignores": []
+        }
+      ]
+    },
+    "extends": [
+      "plugin:vue/recommended"
+    ],
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+      "parser": "babel-eslint",
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    }
+  }
