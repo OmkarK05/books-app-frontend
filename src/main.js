@@ -3,7 +3,7 @@ import App from './App.vue'
 import Vuesax from 'vuesax'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
-import {router} from './Router/AppRoutes'
+import {router} from './router/AppRoutes'
 import MaterialIcons from 'material-icons'
 import axios from 'axios';
 import firebase from 'firebase/app';
@@ -20,7 +20,7 @@ Vue.use(Vuex);
 Vue.use(VueRouter);
 Vue.use(MaterialIcons);
 
-
+export const EventBase = new Vue();
 
 Vue.config.productionTip = false
 import 'vuesax/dist/vuesax.css';

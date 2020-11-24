@@ -21,21 +21,14 @@
       <vs-row>
         <app-section />
       </vs-row>
-      <vs-row
-        vs-w="12"
-        class="footer"
-      >
-        <app-footer />
-      </vs-row>
     </vs-col>
   </vs-row>
 </template>
 
 <script>
-import AppHeader from './Header';
-import AppSection from './Section';
+import AppHeader from './AppHeader';
+import AppSection from './AppSection';
 import AppSidebar from './AppSidebar';
-import AppFooter from './Footer';
 
 export default {
     name: 'AppLayout',
@@ -43,7 +36,6 @@ export default {
         AppHeader,
         AppSection,
         AppSidebar,
-        AppFooter
     },
     data() {
         return {
@@ -60,12 +52,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../SCSS/mixins";
+@import "../assets/SCSS/mixins";
 
 .main {
     width: 100%;
     transition: all 0.5s linear;
-    background: #F4F3F3;
     border-radius: 15px;
     margin: 5px 0;
 

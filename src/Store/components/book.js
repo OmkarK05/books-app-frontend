@@ -27,7 +27,7 @@ export default {
   },
     getters:{
       savedBooks : function(state){
-       let savedBooks = state.books.map((el, i) => {
+       let savedBooks = state.books.filter((el, i) => {
          return el.saved === true;
          })
         return savedBooks;
@@ -40,7 +40,7 @@ export default {
 
     mutations : {
        SAVE_BOOK : function (state, payload){
-         state.books.forEach((el, i) => {
+          state.books.map((el, i) => {
            payload.id === el.id ? el.saved = true : null;
          })
        }

@@ -81,7 +81,7 @@
 <script>
 
 export default {
-    name: 'Sidebar',
+    name: 'AppSidebar',
     data() {
         return {
             extend: false,
@@ -157,7 +157,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../SCSS/mixins";
+@import "../assets/SCSS/mixins";
 
 .active {
     background: #ffffff !important;

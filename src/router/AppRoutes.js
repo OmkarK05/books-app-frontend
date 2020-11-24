@@ -1,8 +1,8 @@
 import VueRouter from 'vue-router'
-import LandingPage from '../Pages/LandingPage'
-import SavedBooks from '../Pages/SavedBooks'
-import AddBook from '../Pages/AddBook'
-import Group from '../Pages/AppGroup'
+import LandingPage from '../pages/LandingPage'
+import SavedBooks from '../pages/SavedBooks'
+import AddBook from '../pages/AddBook'
+import Group from '../pages/AppGroup'
 
 
 let routes = [

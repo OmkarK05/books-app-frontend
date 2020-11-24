@@ -5,15 +5,13 @@
 </template>
 
 <script>
-import AppLayout from './Layout/AppLayout'
-// import AddForm from './components/AddForm'
+import AppLayout from './layout/AppLayout'
 
 
 export default {
   name: 'App',
   components: {
     AppLayout,
-    // AddForm,
   }
 }
 </script>

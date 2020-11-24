@@ -6,6 +6,7 @@
 
 <script>
 export default {
+    name : 'AppSection',
     mounted: function () {
         console.log(this)
     }

@@ -4,24 +4,24 @@
     vs-justify="flex-start"
     vs-align="center"
   >
+<!--    <vs-col-->
+<!--      vs-lg="6"-->
+<!--      vs-sm="6"-->
+<!--      vs-xs="12"-->
+<!--    >-->
+<!--      <span>-->
+<!--        <vs-input-->
+<!--          v-model="query"-->
+<!--          class="search-input"-->
+<!--          icon="search"-->
+<!--          icon-after="true"-->
+<!--          placeholder="Search"-->
+<!--        />-->
+<!--      </span>-->
+<!--    </vs-col>-->
     <vs-col
-      vs-lg="6"
-      vs-sm="6"
-      vs-xs="12"
-    >
-      <span>
-        <vs-input
-          v-model="query"
-          class="search-input"
-          icon="search"
-          icon-after="true"
-          placeholder="Search"
-        />
-      </span>
-    </vs-col>
-    <vs-col
-      vs-lg="6"
-      vs-sm="6"
+      vs-lg="12"
+      vs-sm="12"
       vs-xs="12"
       vs-type="flex"
       vs-align="center"
@@ -43,12 +43,12 @@
           />
         </div>
         <div>Omkar K</div>
-        <div class="icon-container-down">
-          <vs-icon
-            icon="keyboard_arrow_down"
-            size="18px"
-          />
-        </div>
+<!--        <div class="icon-container-down">-->
+<!--          <vs-icon-->
+<!--            icon="keyboard_arrow_down"-->
+<!--            size="18px"-->
+<!--          />-->
+<!--        </div>-->
       </div>
     </vs-col>
   </vs-row>
@@ -56,7 +56,7 @@
 
 <script>
 export default {
-    name: 'Header',
+    name: 'AppHeader',
     data() {
         return {
             query: '',
@@ -76,7 +76,8 @@ export default {
 }
 
 .profile {
-    width: 130px;
+    width: fit-content;
+    padding-right: 8px ;
     display: flex;
     flex-direction: row;
     align-items: center;

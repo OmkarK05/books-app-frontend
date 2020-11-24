@@ -35,12 +35,13 @@
 </template>
 
 <script>
-import AppImages from '../components/Images';
-import AppVideos from '../components/Videos';
-import AppGifs from '../components/Gifs';
+import AppImages from '../components/AppImages';
+import AppVideos from '../components/AppVideos';
+import AppGifs from '../components/AppGifs';
 import AppTab from '../components/AppTab'
 
 export default {
+    name: 'AppGroup',
     components: {
         AppImages,
         AppVideos,

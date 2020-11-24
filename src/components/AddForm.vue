@@ -8,7 +8,7 @@
 <script>
 
 export default {
-    name: 'AddBook',
+    name: 'AddForm',
     components: {
     }
 }

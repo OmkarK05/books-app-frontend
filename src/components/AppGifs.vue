@@ -1,14 +1,14 @@
 <template>
   <div>
-    <slot />
-    <h1>I am child</h1>
+    Gifs
   </div>
 </template>
 
 <script>
-export default {
-
-}
+    export default {
+      name: 'AppGifs'
+        
+    }
 </script>
 
 <style lang="scss" scoped>
