@@ -3,13 +3,13 @@
     <vs-row >
       Saved Books
     </vs-row>
-    <app-card :card-data="savedBook" />
+    <app-card :card-data="savedBooks" @handleSave="handleRemoveBook" />
   </div>
 </template>
 s
 <script>
 
-import {mapGetters} from 'vuex';
+import {mapGetters, mapActions} from 'vuex';
 import AppCard from '../components/AppCard'
 
 export default {
@@ -22,14 +22,21 @@ export default {
         savedBook: null
       }
     },
-    mounted () {
-      this.savedBook = [...this.savedBooks];
-    },
+
   computed: {
       ...mapGetters({
         savedBooks : 'book/savedBooks'
       })
-    }
+    },
+   methods:{
+      handleRemoveBook : function (id){
+        this.removeBook({id});
+      },
+
+      ...mapActions({
+         removeBook : 'book/removeBook'
+      })
+   }
 
 }
 </script>

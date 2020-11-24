@@ -43,15 +43,22 @@ export default {
           state.books.map((el, i) => {
            payload.id === el.id ? el.saved = true : null;
          })
-       }
-
+       },
+      REMOVE_BOOK : function (state, payload){
+         state.books.map((el, i) => {
+           payload.id === el.id ? el.saved = false : null;
+         })
+      }
     },
 
     actions : {
       savedBook : function ({commit, state}, payload){
         commit('SAVE_BOOK', payload);
         console.log(payload);
+      },
 
+      removeBook : function ({commit, state}, payload){
+        commit('REMOVE_BOOK', payload);
       }
     }
 }

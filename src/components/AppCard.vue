@@ -30,27 +30,27 @@
               et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
               aliquip ex ea commodo consequat.
             </span>
-          </div>
-          <div slot="footer">
-            <vs-row>
+            <vs-row class="author">
               -- {{ item.author }}
             </vs-row>
+          </div>
+          <div slot="footer">
             <vs-row vs-justify="flex-end">
               <vs-button
                 type="gradient"
                 color="danger"
-                icon="favorite"
+                :icon="item.saved === true ? 'delete' : 'favorite'"
                 @click="handleSaveBook(item.id)"
               />
-              <vs-button
-                color="primary"
-                icon="turned_in_not"
-              />
-              <vs-button
-                color="rgb(230,230,230)"
-                color-text="rgb(50,50,50)"
-                icon="settings"
-              />
+              <!--              <vs-button-->
+              <!--                color="primary"-->
+              <!--                icon="turned_in_not"-->
+              <!--              />-->
+              <!--              <vs-button-->
+              <!--                color="rgb(230,230,230)"-->
+              <!--                color-text="rgb(50,50,50)"-->
+              <!--                icon="settings"-->
+              <!--              />-->
             </vs-row>
           </div>
         </vs-card>
@@ -90,5 +90,7 @@
   margin: 0 auto;
   height: 200px;
 }
-
+.author{
+  padding: 8px 0;
+}
 </style>
