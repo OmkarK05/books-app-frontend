@@ -90,49 +90,20 @@ import {mapGetters} from 'vuex';
 export default {
     name: 'LandingPage',
     components: {},
-    // data: function (){
-    //   return{
-    //     booksData: null,
-    //   }
-    // },
-  computed: {
-     books: function (){
-       return this.$store.state.book.books;
-     },
-
-    ...mapGetters([
-        'book/savedBooks',
-    ])
-  },
-  mounted () {
-      let formData = {
-          name : 'Long Bright River: A Novel', author: 'LIZ MOORE', image: 'https://hips.hearstapps.com/vader-prod' +
-                '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id:'book1',
-                 saved : false }
-     this.$axios.post('https://book-app-cc225.firebaseio.com/books.json', formData).then((res) => console.log(res));
-  },
-  methods : {
-      handleSaveBook : function (id){
-        this.$store.dispatch('book/savedBook', {id});
-      },
-      ...mapActions([
-          'book/savedBook',
-      ])
-   }
-    // apollo:{
-    //     //vue apollo options here
-    //   booksData : {
-    //     query: gql`query{
-    //      books{
-    //       name
-    //      }
-    //     }`,
-    //     update: result => {
-    //       console.log(result);
-    //       return result.books;
-    //     },
-    //   },
-    // },
+    computed: {
+      ...mapGetters({
+        books: 'book/allBooks',
+      })
+    },
+    mounted () {console.log(this.books)},
+    methods : {
+        handleSaveBook : function (id){
+          this.savedBook({ id });
+        },
+        ...mapActions({
+          savedBook : 'book/savedBook',
+        })
+     }
 }
 </script>
 
@@ -168,3 +139,23 @@ export default {
 }
 
 </style>
+
+    // apollo:{
+    //     //vue apollo options here
+    //   booksData : {
+    //     query: gql`query{
+    //      books{
+    //       name
+    //      }
+    //     }`,
+    //     update: result => {
+    //       console.log(result);
+    //       return result.books;
+    //     },
+    //   },
+    // },
+    // data: function (){
+    //   return{
+    //     booksData: null,
+    //   }
+    // },

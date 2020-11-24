@@ -31,6 +31,10 @@ export default {
          return el.saved === true;
          })
         return savedBooks;
+      },
+
+      allBooks : function (state){
+        return state.books;
       }
     },
 
