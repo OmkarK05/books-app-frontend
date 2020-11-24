@@ -1,13 +1,11 @@
 import Vue from 'vue';
-import Vuex from "vuex";
+import Vuex from 'vuex';
+import book from './book';
 
 Vue.use(Vuex);
 
-export let store = new Vuex.Store({
-    state : {
-
-    },
-    getters:{
-        
-    }
+export const store = new Vuex.Store({
+   modules: {
+     book : book,
+   }
 })

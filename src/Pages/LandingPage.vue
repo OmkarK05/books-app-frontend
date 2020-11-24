@@ -21,7 +21,11 @@
           </div>
         </div>
       </vs-col>
+    </vs-row>
+    <vs-row>
       <vs-col
+        v-for="book in books"
+        :key="book.id"
         vs-lg="4"
         vs-xs="12"
       >
@@ -32,26 +36,33 @@
           >
             <div slot="header">
               <h3>
-                Hello world !
+                {{ book.name }}
               </h3>
             </div>
             <div slot="media">
-              <img>
+              <img 
+                class="book-image"
+                :src="book.image"
+                alt="Book Image"
+              >
             </div>
             <div>
-              <span 
-                v-if="$apollo.queries.hello.loading"
-              >{{ hello }} dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+              <span>
+                {{ book.name }} dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                 et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                 aliquip ex ea commodo consequat.
               </span>
             </div>
             <div slot="footer">
+              <vs-row>
+                --{{ book.author }}
+              </vs-row>
               <vs-row vs-justify="flex-end">
                 <vs-button
                   type="gradient"
                   color="danger"
                   icon="favorite"
+                  @click="handleSaveBook(book.id)"
                 />
                 <vs-button
                   color="primary"
@@ -72,33 +83,64 @@
 </template>
 
 <script>
-import gql from 'graphql-tag';
+// import gql from 'graphql-tag';
+import {mapActions} from 'vuex';
+import {mapGetters} from 'vuex';
+
 export default {
     name: 'LandingPage',
     components: {},
-    data: function (){
-      return{
-        booksData: null,
-      }
-    },
-    apollo:{
-        //vue apollo options here
-      booksData : {
-        query: gql`query{
-         books{
-          name
-         }
-        }`,
-        update: result => {
-          console.log(result);
-          return result.books;
-        },
+    // data: function (){
+    //   return{
+    //     booksData: null,
+    //   }
+    // },
+  computed: {
+     books: function (){
+       return this.$store.state.book.books;
+     },
+
+    ...mapGetters([
+        'book/savedBooks',
+    ])
+  },
+  mounted () {
+      let formData = {
+          name : 'Long Bright River: A Novel', author: 'LIZ MOORE', image: 'https://hips.hearstapps.com/vader-prod' +
+                '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id:'book1',
+                 saved : false }
+     this.$axios.post('https://book-app-cc225.firebaseio.com/books.json', formData).then((res) => console.log(res));
+  },
+  methods : {
+      handleSaveBook : function (id){
+        this.$store.dispatch('book/savedBook', {id});
       },
-    },
+      ...mapActions([
+          'book/savedBook',
+      ])
+   }
+    // apollo:{
+    //     //vue apollo options here
+    //   booksData : {
+    //     query: gql`query{
+    //      books{
+    //       name
+    //      }
+    //     }`,
+    //     update: result => {
+    //       console.log(result);
+    //       return result.books;
+    //     },
+    //   },
+    // },
 }
 </script>
 
 <style lang="scss" scoped>
+
+.book-image{
+  width: 100px;
+}
 
 .content-container{
    padding: 15px;
@@ -117,7 +159,6 @@ export default {
 
    .quote{
        font-size: 32px;
-       font-style: bold;
        padding: 5px;
    }
    .author{

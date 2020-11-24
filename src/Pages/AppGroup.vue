@@ -24,9 +24,11 @@
         vs-w="12"
         class="content-container"
       >
-        <app-images v-if="activeTab === 'images'" />
-        <app-videos v-if="activeTab === 'videos'" />
-        <app-gifs v-if="activeTab === 'gifs'" />
+        <app-tab>
+          <app-images v-if="activeTab === 'images'" />
+          <app-videos v-if="activeTab === 'videos'" />
+          <app-gifs v-if="activeTab === 'gifs'" />
+        </app-tab>
       </vs-col>
     </vs-row>
   </div>
@@ -36,12 +38,14 @@
 import AppImages from '../components/Images';
 import AppVideos from '../components/Videos';
 import AppGifs from '../components/Gifs';
+import AppTab from '../Mixins/AppTab'
 
 export default {
     components: {
         AppImages,
         AppVideos,
-        AppGifs
+        AppGifs,
+        AppTab
     },
     data() {
         return {
