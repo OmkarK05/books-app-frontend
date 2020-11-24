@@ -8,6 +8,7 @@
       class="sidebar"
       :class="extend ? 'open-sidebar' : 'close-sidebar'"
     >
+      <!-- TODO OK: change extendSidebar to extend-sidebar -->
       <app-sidebar @extendSidebar="handleExtend" />
     </vs-col>
     <vs-col
@@ -37,14 +38,16 @@ export default {
         AppSection,
         AppSidebar,
     },
+    //TODO OK: change this from data() to data: function ()
     data() {
         return {
+            // TODO OK: change extend to isExtend
             extend: false,
         };
     },
     methods: {
+        // TODO OK: change parameter a to isExtend
         handleExtend: function (a) {
-
             this.extend = a;
         }
     }
@@ -52,7 +55,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/SCSS/mixins";
+@import "./../assets/scss/mixins";
 
 .main {
     width: 100%;

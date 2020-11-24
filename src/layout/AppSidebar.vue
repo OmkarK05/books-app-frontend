@@ -82,12 +82,18 @@
 
 export default {
     name: 'AppSidebar',
+    // TODO OK: change data() to data: function ()
     data() {
         return {
+            // TODO OK: rename extend to isExtend
             extend: false,
+            // TODO OK: remove activePage data property
             activePage: 'Home',
+          // TODO OK: check for use and remove is not being used
             activeTab: '',
+            // TODO OK: move sidebarContent to AppLayout and drive change from that component
             sidebarContent: {
+                // TODO OK: remove 'top' key from sidebarContent
                 top: [{
                         label: 'Images',
                         icon: 'home',
@@ -149,6 +155,7 @@ export default {
             this.extend = !this.extend;
             this.$emit('extendSidebar', this.extend)
         },
+        // TODO: remove changeActiveTab
         changeActiveTab: function (link) {
             this.activeTab = link;
         }
@@ -157,7 +164,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/SCSS/mixins";
+@import "./../assets/scss/mixins";
 
 .active {
     background: #ffffff !important;

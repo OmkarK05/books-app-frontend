@@ -57,8 +57,10 @@
 <script>
 export default {
     name: 'AppHeader',
+    // TODO change data() to data: function ()
     data() {
         return {
+            // TODO: remove query data property until implementation of search box is present
             query: '',
         }
     }

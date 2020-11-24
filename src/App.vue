@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!--    TODO OK: remove msg prop  -->
     <app-layout msg="Welcome to Your Vue.js App" />
   </div>
 </template>
@@ -17,6 +18,8 @@ export default {
 </script>
 
 <style>
+/*TODO OK: add lang="scss"*/
+/*TODO OK: move this to AppLayout*/
 #app{
   box-sizing: border-box;
   padding: 0px 5px;
