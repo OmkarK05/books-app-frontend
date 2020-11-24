@@ -38,7 +38,7 @@
 import AppImages from '../components/Images';
 import AppVideos from '../components/Videos';
 import AppGifs from '../components/Gifs';
-import AppTab from '../Mixins/AppTab'
+import AppTab from '../components/AppTab'
 
 export default {
     components: {
