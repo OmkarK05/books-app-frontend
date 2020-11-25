@@ -1,6 +1,6 @@
 <template>
   <vs-row>
-    <vs-col 
+    <vs-col
       v-for="item in cardData"
       :key="item.id"
       vs-lg="2"
@@ -9,22 +9,21 @@
     >
       <div>
         <vs-card
-          class="cardx"
           fixed-height
         >
           <div slot="header">
             <h3>
-              Long Bright River: A Novel
+              {{ item.name }}
             </h3>
           </div>
           <div slot="media">
-            <img 
+            <img
               class="book-image"
               :src="item.image"
               alt="Book Image"
             >
           </div>
-          <div>
+          <div class="description">
             <span>
               dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
               et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -60,37 +59,43 @@
 </template>
 
 <script>
-  // import Section from "../Layout/Section"
 
-    export default {
-        name:'AppCard',
-        components: {
-          // 'app-section':Section,
-        },
-        props: ['cardData'],
-      mounted () {
-          console.log(this.cardData);
-      },
-        methods: {
-          handleSaveBook : function (id){
-            this.$emit('handleSave', id)
-          }
-          
-        }
+export default {
+  name: 'AppCard',
+  components: {
+  },
+  props: {
+    cardData: {
+      type: Array, default: function () {
+        return [];
+      }
     }
+  },
+  mounted: function () {
+    console.log(this.cardData);
+  },
+  methods: {
+    handleSaveBook: function (id) {
+      this.$emit('handleAction', id);
+    }
+
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-.card{
+.card {
   height: auto;
   margin-right: 15px;
 }
-.book-image{
+
+.book-image {
   width: auto;
   margin: 0 auto;
   height: 200px;
 }
-.author{
+
+.author {
   padding: 8px 0;
 }
 </style>

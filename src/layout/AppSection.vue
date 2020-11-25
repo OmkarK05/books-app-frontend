@@ -1,12 +1,13 @@
 <template>
-<div class="container">
-    <router-view></router-view>
-</div>
+  <div class="container">
+    <router-view />
+  </div>
 </template>
 
 <script>
 export default {
     name : 'AppSection',
+    // TODO: remove mounted
     mounted: function () {
         console.log(this)
     }

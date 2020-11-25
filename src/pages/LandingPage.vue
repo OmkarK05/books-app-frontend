@@ -23,7 +23,10 @@
       <!--      </vs-col>-->
       Books
     </vs-row>
-    <app-card :cardData="books" @handleSave="handleSaveBook"></app-card>
+    <app-card
+      :card-data="books"
+      @handleAction="handleSaveBook"
+    />
   </div>
 </template>
 
@@ -41,7 +44,7 @@ export default {
         books: 'book/allBooks',
       })
     },
-    mounted () {console.log(this.books)},
+    mounted : function() {console.log(this.books)},
     methods : {
         handleSaveBook : function (id){
           this.savedBook({ id });

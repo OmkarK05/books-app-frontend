@@ -1,29 +1,7 @@
 export default {
   namespaced: true,
   state: {
-    books : [
-          {name : 'Long Bright River: A Novel', author: 'LIZ MOORE', image: 'https://hips.hearstapps.com/vader-prod' +
-                '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id:'book1',
-                 saved : false
-          },
-          {name : 'A Long Petal of the Sea: A Novel', author: 'ISABEL ALLENDE', image: 'https://hips.hearstapps.com' +
-                '/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
-                id:'book2', saved : false
-          },
-          {name : 'To Kill a Mockingbird', author: 'Harper Lee', image: 'https://hips.hearstapps.com/vader-prod' +
-                '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id:'book3',
-                 saved : false
-          },
-          {name : 'The Lord of the Rings', author: 'LIZ MOORE', image: 'https://hips.hearstapps.com/vader-prod' +
-                '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id:'book4',
-                 saved : false
-          },
-          {name : ' Harry Potter and the Philosopher’s Stone', author: 'J.K. Rowling', image: 'https://hips.hearstapp' +
-                's.com/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*'
-                 , id:'book5', saved : false
-          }
-
-      ]
+    books : [],
   },
     getters:{
       savedBooks : function(state){
@@ -48,6 +26,13 @@ export default {
          state.books.map((el, i) => {
            payload.id === el.id ? el.saved = false : null;
          })
+      },
+      ADD_BOOK : function (state, payload){
+         state.books = [...state.books , {...payload}];
+      },
+
+      GET_BOOKS : function (state,payload){
+         state.books = [...payload];
       }
     },
 
@@ -59,6 +44,14 @@ export default {
 
       removeBook : function ({commit, state}, payload){
         commit('REMOVE_BOOK', payload);
+      },
+
+      addBook : function ({commit, state}, payload){
+        commit('ADD_BOOK', payload);
+      },
+
+      getBooks : function ({commit, state}, payload){
+        commit('GET_BOOKS', payload)
       }
     }
 }
