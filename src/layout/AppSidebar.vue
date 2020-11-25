@@ -48,6 +48,7 @@
       >
         <div class="options-container">
           <router-link
+
             v-for="tab in sidebarContent.center"
             :key="tab.id"
             v-slot="{ isActive, href, navigate, isExactActive }"
@@ -157,7 +158,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/SCSS/mixins";
+@import "../assets/scss/mixins";
 
 .active {
     background: #ffffff !important;

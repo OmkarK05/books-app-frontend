@@ -43,9 +43,8 @@ export default {
         };
     },
     methods: {
-        handleExtend: function (a) {
-
-            this.extend = a;
+        handleExtend: function (bool) {
+            this.extend = bool;
         }
     }
 };
