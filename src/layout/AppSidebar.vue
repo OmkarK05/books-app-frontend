@@ -91,12 +91,9 @@ export default {
       },
     },
   },
-// TODO OK: change data() to data: function () : Done
   data: function () {
     return {
-      // TODO OK: rename extend to isExtend
       isExtend: false,
-      // TODO OK: move sidebarContent to AppLayout and drive change from that component : Done
     };
   }
   ,
@@ -105,7 +102,6 @@ export default {
       this.isExtend = ! this.isExtend;
       this.$emit('extendSidebar', this.isExtend);
     }
-    // TODO: remove changeActiveTab : Done
   }
 }
 ;

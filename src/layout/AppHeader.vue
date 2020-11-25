@@ -60,10 +60,8 @@
 <script>
 export default {
   name: 'AppHeader',
-  // TODO change data() to data: function () :done
   data: function () {
     return {
-      // TODO: remove query data property until implementation of search box is present : Done
     };
   },
   methods: {

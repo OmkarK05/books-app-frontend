@@ -8,7 +8,6 @@
       class="sidebar"
       :class="isExtend ? 'open-sidebar' : 'close-sidebar'"
     >
-      <!-- TODO OK: change extendSidebar to extend-sidebar : Done -->
       <app-sidebar
         :sidebar-content="sidebarContent"
         @extend-sidebar="handleExtend"
@@ -42,12 +41,9 @@ export default {
     AppSection,
     AppSidebar,
   },
-  //TODO OK: change this from data() to data: function () : Done
   data: function () {
     return {
-      // TODO OK: change extend to isExtend : Done
       isExtend: false,
-      // TODO OK: remove 'top' key from sidebarContent
       sidebarContent: [{
         label: 'Home',
         icon: 'home',
@@ -80,29 +76,42 @@ export default {
 
       books: [
         {
-          name: 'Long Bright River: A Novel', author: 'LIZ MOORE', image: 'https://hips.hearstapps.com/vader-prod' +
-              '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id: 'book1',
+          name: 'Long Bright River: A Novel',
+          author: 'LIZ MOORE',
+          image: 'https://hips.hearstapps.com/vader-prod' +
+            '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
+          id: 'book1',
           saved: false
         },
         {
-          name: 'A Long Petal of the Sea: A Novel', author: 'ISABEL ALLENDE', image: 'https://hips.hearstapps.com' +
+          name: 'A Long Petal of the Sea: A Novel',
+          author: 'ISABEL ALLENDE',
+          image: 'https://hips.hearstapps.com' +
               '/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
-          id: 'book2', saved: false
-        },
-        {
-          name: 'To Kill a Mockingbird', author: 'Harper Lee', image: 'https://hips.hearstapps.com/vader-prod' +
-              '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id: 'book3',
+          id: 'book2',
           saved: false
         },
         {
-          name: 'The Lord of the Rings', author: 'LIZ MOORE', image: 'https://hips.hearstapps.com/vader-prod' +
+          name: 'To Kill a Mockingbird',
+          author: 'Harper Lee',
+          image: 'https://hips.hearstapps.com/vader-prod' +
+              '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
+          id: 'book3',
+          saved: false
+        },
+        {
+          name: 'The Lord of the Rings',
+          author: 'LIZ MOORE',
+          image: 'https://hips.hearstapps.com/vader-prod' +
               '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id: 'book4',
           saved: false
         },
         {
-          name: ' Harry Potter and the Philosopher’s Stone', author: 'J.K. Rowling', image: 'https://hips.hearstapp' +
-              's.com/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*'
-          , id: 'book5', saved: false
+          name: ' Harry Potter and the Philosopher’s Stone',
+          author: 'J.K. Rowling', image: 'https://hips.hearstapp' +
+              's.com/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
+          id: 'book5',
+          saved: false
         }
 
       ]
@@ -111,17 +120,18 @@ export default {
   },
 
   mounted: function () {
+    // TODO: make this setup within a setup method which will also set user data
     this.getBooks([...this.books]);
   },
 
   methods: {
-    // TODO OK: change parameter a to isExtend: Done
     handleExtend: function (isExtend) {
       this.isExtend = isExtend;
     },
+    // TODO: rename getBooks to setBooks
     ...mapActions({
       getBooks: 'book/getBooks'
-    })
+    }),
   }
 };
 
