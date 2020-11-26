@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!--    TODO OK: remove msg prop  -->
     <app-layout />
   </div>
 </template>
@@ -18,8 +17,6 @@ export default {
 </script>
 
 <style>
-/*TODO OK: add lang="scss"*/
-/*TODO OK: move this to AppLayout*/
 #app{
   box-sizing: border-box;
   margin: 0px;

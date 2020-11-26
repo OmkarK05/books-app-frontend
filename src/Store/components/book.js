@@ -34,7 +34,6 @@ export default {
   actions: {
     saveBook: function ({ commit, state }, id) {
       commit('SAVE_BOOK', id);
-      console.log(payload);
     },
 
     unsaveBook: function ({ commit, state }, id) {

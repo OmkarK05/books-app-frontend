@@ -1,8 +1,7 @@
 <template>
   <vs-row
     class="container"
-    vs-type="flex"
-    justify-content="space-between"
+    vs-justify="flex-end"
   >
     <vs-col
       class="sidebar"
@@ -31,6 +30,7 @@ import AppHeader from './AppHeader';
 import AppSection from './AppSection';
 import AppSidebar from './AppSidebar';
 import { mapActions } from 'vuex';
+import movies from '../assets/json/Movies.json';
 
 export default {
   name: 'AppLayout',
@@ -126,22 +126,24 @@ export default {
   },
 
   mounted: function () {
-    this.setInitialData()
+    this.setInitialData();
   },
 
   methods: {
     // handleExtend: function (extend) {
     //   this.isExtend = extend;
     // },
+
     ...mapActions({
       setBooks: 'book/setBooks',
-      setUserDetails: 'user/setUserDetails'
+      setUserDetails: 'user/setUserDetails',
+      setMovies : 'movie/setMovies'
     }),
 
-    setInitialData: function (){
-       this.setBooks(this.books);
-       this.setUserDetails(this.user);
-
+    setInitialData: function () {
+      this.setBooks(this.books);
+      this.setUserDetails(this.user);
+      this.setMovies(movies);
     }
   }
 };
@@ -152,6 +154,8 @@ export default {
 @import "./../assets/scss/mixins";
 
 .main {
+  justify-self: flex-end;
+  align-self: end;
   width: 100%;
   transition: all 0.5s linear;
   border-radius: 15px;
@@ -163,13 +167,18 @@ export default {
     margin-right: 50px;
   }
 }
+
 .sidebar {
   height: 100vh;
   width: 100%;
+  position: fixed;
+  left: 0;
 }
 
 .container {
   width: 100%;
+  display: flex;
+  align-items: flex-start;
 }
 
 .footer {

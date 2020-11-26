@@ -1,12 +1,25 @@
 <template>
   <div class="container">
     <vs-row>
-      Saved Books
+      <vs-col>
+        <vs-row>
+          Saved Books
+        </vs-row>
+        <app-card
+          :card-data="savedBooks"
+          @handleAction="handleUnsaveBook"
+        />
+      </vs-col>      
+      <vs-col>
+        <vs-row>
+          Saved Movies
+        </vs-row>
+        <app-card
+          :card-data="savedMovies"
+          @handleAction="handleUnsaveMovie"
+        />
+      </vs-col>
     </vs-row>
-    <app-card
-      :card-data="savedBooks"
-      @handleAction="handleRemoveBook"
-    />
   </div>
 </template>
 
@@ -27,16 +40,22 @@ export default {
 
   computed: {
       ...mapGetters({
-        savedBooks : 'book/savedBooks'
+        savedBooks : 'book/savedBooks',
+        savedMovies : 'movie/savedMovies'
       })
     },
    methods:{
-      handleRemoveBook : function (id){
+      handleUnsaveBook : function (id){
         this.unsaveBook(id);
       },
 
+     handleUnsaveMovie : function (id){
+         this.unsaveMovie(id);
+     },
+
       ...mapActions({
-         unsaveBook : 'book/unsaveBook'
+         unsaveBook : 'book/unsaveBook',
+         unsaveMovie : 'movie/unsaveMovie'
       })
    }
 

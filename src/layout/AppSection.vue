@@ -7,10 +7,6 @@
 <script>
 export default {
     name : 'AppSection',
-    // TODO: remove mounted
-    mounted: function () {
-        console.log(this)
-    }
 }
 </script>
 

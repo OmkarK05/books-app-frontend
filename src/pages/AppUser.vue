@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="form-container">
-      <vs-row 
+      <vs-row
         vs-justify="center"
         vs-align="center"
       >
@@ -24,7 +24,7 @@
           <div>
             <label>Firstname</label>
             <vs-input
-              v-model="firstName"
+              v-model="userData.firstName"
               :disabled="!edit"
               class="name-input"
             />
@@ -37,7 +37,7 @@
           <div>
             <label>Lastname</label>
             <vs-input
-              v-model="lastName"
+              v-model="userData.lastName"
               :disabled="!edit"
               class="name-input"
             />
@@ -50,7 +50,7 @@
           <div>
             <label>City</label>
             <vs-input
-              v-model="city"
+              v-model="userData.city"
               :disabled="!edit"
               class="name-input"
             />
@@ -63,7 +63,7 @@
           <div>
             <label>Date of Birth</label>
             <vs-input
-              v-model="dateOfBirth"
+              v-model="userData.dateOfBirth"
               :disabled="!edit"
               class="name-input"
               type="date"
@@ -77,7 +77,7 @@
           <div>
             <label>Email</label>
             <vs-input
-              v-model="email"
+              v-model="userData.email"
               :disabled="!edit"
               class="name-input"
               type="email"
@@ -107,11 +107,13 @@ export default {
   name: 'AppUser',
   data: function () {
     return {
-      firstName: '',
-      lastName: '',
-      city: '',
-      dateOfBirth: '',
-      email: '',
+      userData: {
+        firstName: '',
+        lastName: '',
+        city: '',
+        dateOfBirth: '',
+        email: '',
+      },
       edit: false,
     };
   },
@@ -131,21 +133,11 @@ export default {
 
   methods: {
     setData: function (userDetails) {
-      this.firstName = userDetails.firstName;
-      this.lastName = userDetails.lastName;
-      this.city = userDetails.city;
-      this.dateOfBirth = userDetails.dateOfBirth;
-      this.email = userDetails.email;
+      this.userDetails = userDetails;
     },
 
     handleSave: function () {
-      this.setUserDetails({
-        firstName: this.firstName,
-        lastName: this.lastName,
-        city: this.city,
-        dateOfBirth: this.dateOfBirth,
-        email: this.email
-      });
+      this.setUserDetails(this.userDetails);
     },
 
     ...mapActions({
@@ -159,19 +151,21 @@ export default {
 .btn-container {
   padding: 15px 0;
 }
-.container{
+
+.container {
   width: 400px;
   margin: 0 auto;
   box-shadow: 0 0 5px darkgrey;
   padding: 15px 0;
   border-radius: 15px;
 }
-.form-container{
+
+.form-container {
   width: 200px;
-  margin: 0 auto
-;
+  margin: 0 auto;
 }
-.flex-container{
+
+.flex-container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -179,7 +173,8 @@ export default {
   justify-content: center;
   padding: 5px 0;
 }
-.head{
+
+.head {
   padding: 15px 0;
   font-size: 18px;
 }

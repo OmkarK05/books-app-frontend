@@ -1,32 +1,12 @@
 <template>
   <div>
-    <vs-row
-      vs-w="12"
-      vs-justify="space-between"
-      vs-align="center"
-    >
-      <!--      <vs-col-->
-      <!--        vs-lg="6"-->
-      <!--        vs-xs="12"-->
-      <!--      >-->
-      <!--        <div class="content-container">-->
-      <!--          <div class="title">-->
-      <!--            Daily Quote-->
-      <!--          </div>-->
-      <!--          <div class="quote">-->
-      <!--            "I have always imagined that Paradise will be a kind of library"-->
-      <!--          </div>-->
-      <!--          <div class="author">-->
-      <!--            -Jorge Luis Borges-->
-      <!--          </div>-->
-      <!--        </div>-->
-      <!--      </vs-col>-->
-      Books
+    <vs-row>
+      <app-books />
     </vs-row>
-    <app-card
-      :card-data="books"
-      @handleAction="handleSaveBook"
-    />
+
+    <vs-row>
+      <app-movies />
+    </vs-row>
   </div>
 </template>
 
@@ -34,25 +14,13 @@
 // import gql from 'graphql-tag';
 import {mapActions} from 'vuex';
 import {mapGetters} from 'vuex';
-import AppCard from '../components/AppCard';
+import AppMovies from '../components/AppMovies';
+import AppBooks from '../components/AppBooks';
+
 
 export default {
     name: 'LandingPage',
-    components: {AppCard},
-    computed: {
-      ...mapGetters({
-        books: 'book/allBooks',
-      })
-    },
-    mounted : function() {console.log(this.books)},
-    methods : {
-        handleSaveBook : function (id){
-          this.saveBook(id);
-        },
-        ...mapActions({
-          saveBook : 'book/saveBook',
-        })
-     }
+    components: {AppMovies, AppBooks},
 }
 </script>
 
