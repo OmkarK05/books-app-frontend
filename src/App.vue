@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--    TODO OK: remove msg prop  -->
-    <app-layout msg="Welcome to Your Vue.js App" />
+    <app-layout />
   </div>
 </template>
 
@@ -22,7 +22,6 @@ export default {
 /*TODO OK: move this to AppLayout*/
 #app{
   box-sizing: border-box;
-  padding: 0px 5px;
   margin: 0px;
   width: 100%;
   min-height: 100%;

@@ -6,17 +6,15 @@
   >
     <vs-col
       class="sidebar"
-      :class="isExtend ? 'open-sidebar' : 'close-sidebar'"
+      vs-w="1.5"
     >
       <app-sidebar
         :sidebar-content="sidebarContent"
-        @extend-sidebar="handleExtend"
       />
     </vs-col>
     <vs-col
-      vs-w="12"
+      vs-w="10.5"
       class="main"
-      :class=" isExtend ? 'open' : 'close'"
     >
       <vs-row>
         <app-header />
@@ -43,7 +41,7 @@ export default {
   },
   data: function () {
     return {
-      isExtend: false,
+      // isExtend: false,
       sidebarContent: [{
         label: 'Home',
         icon: 'home',
@@ -79,7 +77,7 @@ export default {
           name: 'Long Bright River: A Novel',
           author: 'LIZ MOORE',
           image: 'https://hips.hearstapps.com/vader-prod' +
-            '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
+              '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
           id: 'book1',
           saved: false
         },
@@ -114,24 +112,37 @@ export default {
           saved: false
         }
 
-      ]
+      ],
+
+      user: {
+        firstName: 'Omkar',
+        lastName: 'Kesarkhane',
+        city: 'Sangli',
+        dateOfBirth: '1998-12-06',
+        email: 'omkesarkhane@gmail.com',
+      }
 
     };
   },
 
   mounted: function () {
-    // TODO: make this setup within a setup method which will also set user data
-    this.getBooks([...this.books]);
+    this.setInitialData()
   },
 
   methods: {
-    handleExtend: function (isExtend) {
-      this.isExtend = isExtend;
-    },
-    // TODO: rename getBooks to setBooks
+    // handleExtend: function (extend) {
+    //   this.isExtend = extend;
+    // },
     ...mapActions({
-      getBooks: 'book/getBooks'
+      setBooks: 'book/setBooks',
+      setUserDetails: 'user/setUserDetails'
     }),
+
+    setInitialData: function (){
+       this.setBooks(this.books);
+       this.setUserDetails(this.user);
+
+    }
   }
 };
 
@@ -145,32 +156,16 @@ export default {
   transition: all 0.5s linear;
   border-radius: 15px;
   margin: 5px 0;
+  padding: 0px 15px;
 
   @include Mobile() {
     margin-left: 0 !important;
     margin-right: 50px;
   }
 }
-
-.open-sidebar {
-  width: 150px !important;
-}
-
-.close-sidebar {
-  width: 50px !important;
-}
-
-.open {
-  margin-left: 150px !important;
-}
-
-.close {
-  margin-left: 50px !important;
-}
-
 .sidebar {
-  height: 100%;
-  width: 150px;
+  height: 100vh;
+  width: 100%;
 }
 
 .container {

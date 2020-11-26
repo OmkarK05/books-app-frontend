@@ -1,43 +1,42 @@
 <template>
   <div
     class="container"
-    :class="isExtend ? 'open-sidebar' : 'close-sidebar'"
   >
-    <vs-row
-      class="top-row"
-      vs-justify="center"
-      vs-align="flex-start"
-    >
-      <vs-col
-        class="top"
-        vs-w="12"
-        vs-type="flex"
-        vs-align="center"
-        vs-justify="flex-start"
-      >
-        <div class="option">
-          <span class="icon">
-            <vs-icon
-              icon="import_contacts"
-              size="22px"
-            />
-          </span>
-        </div>
+    <!--    <vs-row-->
+    <!--      class="top-row"-->
+    <!--      vs-justify="center"-->
+    <!--      vs-align="flex-start"-->
+    <!--    >-->
+    <!--      <vs-col-->
+    <!--        class="top"-->
+    <!--        vs-w="12"-->
+    <!--        vs-type="flex"-->
+    <!--        vs-align="center"-->
+    <!--        vs-justify="flex-start"-->
+    <!--      >-->
+    <!--        <div class="option">-->
+    <!--          <span class="icon">-->
+    <!--            <vs-icon-->
+    <!--              icon="import_contacts"-->
+    <!--              size="22px"-->
+    <!--            />-->
+    <!--          </span>-->
+    <!--        </div>-->
 
-        <div
-          class="option"
-          @click="handleExtend"
-        >
-          <span class="icon">
-            <vs-icon
-              class="move-icon"
-              icon="keyboard_arrow_right"
-              size="22px"
-            />
-          </span>
-        </div>
-      </vs-col>
-    </vs-row>
+    <!--        <div-->
+    <!--          class="option"-->
+    <!--          @click="handleExtend"-->
+    <!--        >-->
+    <!--          <span class="icon">-->
+    <!--            <vs-icon-->
+    <!--              class="move-icon"-->
+    <!--              icon="keyboard_arrow_right"-->
+    <!--              size="22px"-->
+    <!--            />-->
+    <!--          </span>-->
+    <!--        </div>-->
+    <!--      </vs-col>-->
+    <!--    </vs-row>-->
     <vs-row class="bottom-row">
       <vs-col
         class="center"
@@ -48,11 +47,11 @@
       >
         <div class="options-container">
           <router-link
-
             v-for="tab in sidebarContent"
             :key="tab.id"
             v-slot="{ isActive, href, navigate, isExactActive }"
             :to="tab.link"
+            class="router-link"
           >
             <div
               class="option"
@@ -69,7 +68,7 @@
               </span>
               <span
                 class="option-name"
-                :class="[isActive && isExactActive ? 'active-color' : '' , isExtend ? 'open' : 'close']"
+                :class="[isActive && isExactActive ? 'active-color' : '']"
               >{{ tab.label }}</span>
             </div>
           </router-link>
@@ -93,15 +92,15 @@ export default {
   },
   data: function () {
     return {
-      isExtend: false,
+      // isExtend: false,
     };
   }
   ,
   methods: {
-    handleExtend: function () {
-      this.isExtend = ! this.isExtend;
-      this.$emit('extendSidebar', this.isExtend);
-    }
+    // handleExtend: function () {
+    //   this.isExtend = ! this.isExtend;
+    //   this.$emit('extendSidebar', this.isExtend);
+    // }
   }
 }
 ;
@@ -119,23 +118,6 @@ export default {
   color: #FF6161 !important;
 }
 
-.open-sidebar {
-  width: 150px;
-}
-
-.close-sidebar {
-  width: 50px;
-}
-
-.open {
-  opacity: 1;
-}
-
-.close {
-  display: none !important;
-  opacity: 0;
-}
-
 .main-row {
   height: 100%;
 }
@@ -144,8 +126,15 @@ export default {
   height: fit-content;
   flex-direction: column;
 }
-
+.router-link{
+  padding: 0;
+  margin: 0;
+}
+.option-container{
+  width: 100%;
+}
 .option {
+  width: 100%;
   padding: 8px 0;
   display: flex;
   flex-direction: row;
@@ -174,9 +163,8 @@ export default {
 }
 
 .container {
-  position: fixed;
   height: 100%;
-  right: 0;
+  width: 100%;
   background: #FF6161;
   display: flex;
   flex-direction: column;
@@ -185,7 +173,6 @@ export default {
   border-radius: 0;
 
   @include Desktop() {
-    left: 0;
   }
 
 }

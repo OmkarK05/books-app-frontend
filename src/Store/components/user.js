@@ -1,19 +1,19 @@
 export default {
   namespaced: true,
   state: {
-    firstname: '',
-    lastname: '',
-    DOB: '',
+    firstName: '',
+    lastName: '',
+    dateOfBirth: '',
     email: '',
     city: '',
   },
 
   getters: {
-    getUserData: function (state) {
+    getUserDetails: function (state) {
       return {
-        firstname: state.firstname,
-        lastname: state.lastname,
-        dateOfBirth: state.DOB,
+        firstName: state.firstName,
+        lastName: state.lastName,
+        dateOfBirth: state.dateOfBirth,
         email: state.email,
         city: state.city
       };
@@ -21,8 +21,19 @@ export default {
 
   },
 
-  mutations: {},
+  mutations: {
+    SET_USER_DETAILS: function (state, userDetails) {
+      state.firstName = userDetails.firstName;
+      state.lastName = userDetails.lastName;
+      state.city = userDetails.city;
+      state.dateOfBirth = userDetails.dateOfBirth;
+      state.email = userDetails.email;
+    }
+  },
 
-  actions: {}
-
+  actions: {
+    setUserDetails: function ({ commit, state }, userDetails) {
+         commit('SET_USER_DETAILS', userDetails)
+    }
+  }
 };

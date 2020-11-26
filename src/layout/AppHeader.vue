@@ -45,7 +45,7 @@
             size="18px"
           />
         </div>
-        <div>Omkar K</div>
+        <div>{{ userDetails.firstName }}</div>
         <!--        <div class="icon-container-down">-->
         <!--          <vs-icon-->
         <!--            icon="keyboard_arrow_down"-->
@@ -58,14 +58,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'AppHeader',
   data: function () {
-    return {
-    };
+    return {};
+  },
+  computed: {
+    ...mapGetters({
+       userDetails : 'user/getUserDetails'
+    }),
   },
   methods: {
-    handleUser : function (){
+    handleUser: function () {
       this.$router.push('/user');
     }
   }

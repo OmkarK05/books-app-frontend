@@ -47,10 +47,10 @@ export default {
     mounted : function() {console.log(this.books)},
     methods : {
         handleSaveBook : function (id){
-          this.savedBook({ id });
+          this.saveBook(id);
         },
         ...mapActions({
-          savedBook : 'book/savedBook',
+          saveBook : 'book/saveBook',
         })
      }
 }

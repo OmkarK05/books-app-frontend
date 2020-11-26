@@ -32,11 +32,11 @@ export default {
     },
    methods:{
       handleRemoveBook : function (id){
-        this.removeBook({id});
+        this.unsaveBook(id);
       },
 
       ...mapActions({
-         removeBook : 'book/removeBook'
+         unsaveBook : 'book/unsaveBook'
       })
    }
 
