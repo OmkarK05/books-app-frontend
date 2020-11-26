@@ -1,64 +1,52 @@
 export default {
   namespaced: true,
   state: {
-    books : [
-          {name : 'Long Bright River: A Novel', author: 'LIZ MOORE', image: 'https://hips.hearstapps.com/vader-prod' +
-                '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id:'book1',
-                 saved : false
-          },
-          {name : 'A Long Petal of the Sea: A Novel', author: 'ISABEL ALLENDE', image: 'https://hips.hearstapps.com' +
-                '/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
-                id:'book2', saved : false
-          },
-          {name : 'To Kill a Mockingbird', author: 'Harper Lee', image: 'https://hips.hearstapps.com/vader-prod' +
-                '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id:'book3',
-                 saved : false
-          },
-          {name : 'The Lord of the Rings', author: 'LIZ MOORE', image: 'https://hips.hearstapps.com/vader-prod' +
-                '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id:'book4',
-                 saved : false
-          },
-          {name : ' Harry Potter and the Philosopher’s Stone', author: 'J.K. Rowling', image: 'https://hips.hearstapp' +
-                's.com/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*'
-                 , id:'book5', saved : false
-          }
-
-      ]
+    books: [],
   },
-    getters:{
-      savedBooks : function(state){
-       let savedBooks = state.books.filter((el, i) => {
-         return el.saved === true;
-         })
-        return savedBooks;
-      },
-
-      allBooks : function (state){
-        return state.books;
-      }
+  getters: {
+    savedBooks: function (state) {
+      return state['books'].filter((book) => book['saved']);
     },
 
-    mutations : {
-       SAVE_BOOK : function (state, payload){
-          state.books.map((el, i) => {
-           payload.id === el.id ? el.saved = true : null;
-         })
-       },
-      REMOVE_BOOK : function (state, payload){
-         state.books.map((el, i) => {
-           payload.id === el.id ? el.saved = false : null;
-         })
-      }
-    },
-
-    actions : {
-      savedBook : function ({commit, state}, payload){
-        commit('SAVE_BOOK', payload);
-        console.log(payload);
-      },
-
-      removeBook : function ({commit, state}, payload){
-        commit('REMOVE_BOOK', payload);
-      }
+    allBooks: function (state) {
+      return state.books;
     }
-}
+  },
+
+  mutations: {
+    SAVE_BOOK: function (state, id) {
+      state['books'].find((book) => book.id === id ? book['saved'] = true : null);
+    },
+
+    UNSAVE_BOOK: function (state, id) {
+      state['books'].find((book) => book.id === id ? book['saved'] = false : null);
+    },
+
+    ADD_BOOK: function (state, book) {
+      state['books'].push(book);
+    },
+
+    SET_BOOKS: function (state, books) {
+      state.books = books;
+    }
+  },
+
+  actions: {
+    saveBook: function ({ commit, state }, id) {
+      commit('SAVE_BOOK', id);
+      console.log(payload);
+    },
+
+    unsaveBook: function ({ commit, state }, id) {
+      commit('UNSAVE_BOOK', id);
+    },
+
+    addBook: function ({ commit, state }, payload) {
+      commit('ADD_BOOK', payload);
+    },
+
+    setBooks: function ({ commit, state }, books) {
+      commit('SET_BOOKS', books);
+    }
+  }
+};

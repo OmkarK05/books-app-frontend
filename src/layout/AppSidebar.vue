@@ -1,43 +1,42 @@
 <template>
   <div
     class="container"
-    :class="extend ? 'open-sidebar' : 'close-sidebar'"
   >
-    <vs-row 
-      class="top-row"
-      vs-justify="center"
-      vs-align="flex-start"
-    >
-      <vs-col
-        class="top"
-        vs-w="12"
-        vs-type="flex"
-        vs-align="center"
-        vs-justify="flex-start"
-      >
-        <div class="option">
-          <span class="icon">
-            <vs-icon
-              icon="import_contacts"
-              size="22px"
-            />
-          </span>
-        </div>
+    <!--    <vs-row-->
+    <!--      class="top-row"-->
+    <!--      vs-justify="center"-->
+    <!--      vs-align="flex-start"-->
+    <!--    >-->
+    <!--      <vs-col-->
+    <!--        class="top"-->
+    <!--        vs-w="12"-->
+    <!--        vs-type="flex"-->
+    <!--        vs-align="center"-->
+    <!--        vs-justify="flex-start"-->
+    <!--      >-->
+    <!--        <div class="option">-->
+    <!--          <span class="icon">-->
+    <!--            <vs-icon-->
+    <!--              icon="import_contacts"-->
+    <!--              size="22px"-->
+    <!--            />-->
+    <!--          </span>-->
+    <!--        </div>-->
 
-        <div
-          class="option"
-          @click="handleExtend"
-        >
-          <span class="icon">
-            <vs-icon
-              class="move-icon"
-              icon="keyboard_arrow_right"
-              size="22px"
-            />
-          </span>
-        </div>
-      </vs-col>
-    </vs-row>
+    <!--        <div-->
+    <!--          class="option"-->
+    <!--          @click="handleExtend"-->
+    <!--        >-->
+    <!--          <span class="icon">-->
+    <!--            <vs-icon-->
+    <!--              class="move-icon"-->
+    <!--              icon="keyboard_arrow_right"-->
+    <!--              size="22px"-->
+    <!--            />-->
+    <!--          </span>-->
+    <!--        </div>-->
+    <!--      </vs-col>-->
+    <!--    </vs-row>-->
     <vs-row class="bottom-row">
       <vs-col
         class="center"
@@ -48,10 +47,11 @@
       >
         <div class="options-container">
           <router-link
-            v-for="tab in sidebarContent.center"
+            v-for="tab in sidebarContent"
             :key="tab.id"
             v-slot="{ isActive, href, navigate, isExactActive }"
             :to="tab.link"
+            class="router-link"
           >
             <div
               class="option"
@@ -68,7 +68,7 @@
               </span>
               <span
                 class="option-name"
-                :class="[isActive && isExactActive ? 'active-color' : '' , extend ? 'open' : 'close']"
+                :class="[isActive && isExactActive ? 'active-color' : '']"
               >{{ tab.label }}</span>
             </div>
           </router-link>
@@ -81,180 +81,112 @@
 <script>
 
 export default {
-    name: 'AppSidebar',
-    // TODO OK: change data() to data: function ()
-    data() {
-        return {
-            // TODO OK: rename extend to isExtend
-            extend: false,
-            // TODO OK: remove activePage data property
-            activePage: 'Home',
-          // TODO OK: check for use and remove is not being used
-            activeTab: '',
-            // TODO OK: move sidebarContent to AppLayout and drive change from that component
-            sidebarContent: {
-                // TODO OK: remove 'top' key from sidebarContent
-                top: [{
-                        label: 'Images',
-                        icon: 'home',
-                        id: 'images-tab',
-                        iconSize: '18px',
-                        link: '/images',
-                    },
-                    {
-                        label: 'Videos',
-                        icon: 'library_books',
-                        id: 'videos-tab',
-                        iconSize: '18px',
-                        link: '/videos',
-                    },
-                    {
-                        label: 'Gifs',
-                        icon: 'library_add',
-                        id: 'gifs-tab',
-                        iconSize: '18px',
-                        link: '/gifs',
-                    },
-                ],
-                center: [{
-                        label: 'Home',
-                        icon: 'home',
-                        id: 'home-tab',
-                        iconSize: '18px',
-                        link: '/',
-                    },
-                    {
-                        label: 'My Library',
-                        icon: 'library_books',
-                        id: 'myLibrary-tab',
-                        iconSize: '18px',
-                        link: '/saved-books',
-                    },
-                    {
-                        label: 'Add Book',
-                        icon: 'library_add',
-                        id: 'home-tab',
-                        iconSize: '18px',
-                        link: '/add-book',
-                    },
-                    {
-                        label: 'Groups',
-                        icon: 'group',
-                        id: 'groups-tab',
-                        iconSize: '18px',
-                        link: '/group',
-                    }
-                ]
-            },
-
-        }
+  name: 'AppSidebar',
+  props: {
+    sidebarContent: {
+      type: Array,
+      default: function () {
+        return [];
+      },
     },
-    methods: {
-        handleExtend: function () {
-            console.log('clicked')
-            this.extend = !this.extend;
-            this.$emit('extendSidebar', this.extend)
-        },
-        // TODO: remove changeActiveTab
-        changeActiveTab: function (link) {
-            this.activeTab = link;
-        }
-    }
+  },
+  data: function () {
+    return {
+      // isExtend: false,
+    };
+  }
+  ,
+  methods: {
+    // handleExtend: function () {
+    //   this.isExtend = ! this.isExtend;
+    //   this.$emit('extendSidebar', this.isExtend);
+    // }
+  }
 }
+;
 </script>
 
 <style lang="scss" scoped>
+
 @import "./../assets/scss/mixins";
 
 .active {
-    background: #ffffff !important;
+  background: #ffffff !important;
 }
 
 .active-color {
-    color: #FF6161 !important;
-}
-
-.open-sidebar {
-    width: 150px;
-}
-
-.close-sidebar {
-    width: 50px;
-}
-
-.open {
-    opacity: 1;
-}
-
-.close {
-    display: none !important;
-    opacity: 0;
+  color: #FF6161 !important;
 }
 
 .main-row {
-    height: 100%;
+  height: 100%;
 }
 
 .top {
-    height: fit-content;
-    flex-direction: column;
+  height: fit-content;
+  flex-direction: column;
 }
-
+.router-link{
+  padding: 0;
+  margin: 0;
+}
+.option-container{
+  width: 100%;
+}
 .option {
-    padding: 8px 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
+  width: 100%;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
 
 .icon {
-    color: #ffffff;
-    font-size: 16px;
-    width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  color: #ffffff;
+  font-size: 16px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .option-name {
-    color: #ffffff;
-    font-size: 14px;
-    width: 100px;
-    text-align: left;
-    transition: width 0.5s linear;
-    transition-delay: 0.5s;
+  color: #ffffff;
+  font-size: 14px;
+  width: 100px;
+  text-align: left;
+  transition: width 0.5s linear;
+  transition-delay: 0.5s;
 }
 
 .container {
-    position: fixed;
-    height: 100%;
-    right: 0;
-    background: #FF6161;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.5s linear;
-    border-radius: 0px;
+  height: 100%;
+  width: 100%;
+  background: #FF6161;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s linear;
+  border-radius: 0;
 
-    @include Desktop() {
-        left: 0;
-    }
+  @include Desktop() {
+  }
 
 }
 
-.bottom-row{
+.bottom-row {
   margin-top: 1rem;
 }
 
 
 .center {
-    height: fit-content;
+  height: fit-content;
 }
 
 .content {
-    margin: 0rem 0px;
+  margin: 0 0;
 }
 </style>

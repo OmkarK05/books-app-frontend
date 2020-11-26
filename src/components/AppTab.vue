@@ -7,7 +7,7 @@
 <script>
 export default {
   name: 'AppTab',
-  mounted () {
+  mounted : function () {
      console.log(this.$slots);
   }
 }

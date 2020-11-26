@@ -48,7 +48,7 @@ export default {
         AppGifs,
         AppTab
     },
-    data() {
+    data: function() {
         return {
             activeTab: 'images',
             tabs: [{

@@ -27,7 +27,7 @@
 <script>
 export default {
     name: 'AppImages',
-    data() {
+    data : function () {
         return {
             images: [{
                     id: 'book1',

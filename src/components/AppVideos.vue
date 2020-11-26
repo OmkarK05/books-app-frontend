@@ -28,7 +28,7 @@
 <script>
 export default {
     name: 'AppVideo',
-    data() {
+    data: function () {
         return {
             videos: [{
                     id: 'video1',

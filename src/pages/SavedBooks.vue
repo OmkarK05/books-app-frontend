@@ -1,12 +1,15 @@
 <template>
   <div class="container">
-    <vs-row >
+    <vs-row>
       Saved Books
     </vs-row>
-    <app-card :card-data="savedBooks" @handleSave="handleRemoveBook" />
+    <app-card
+      :card-data="savedBooks"
+      @handleAction="handleRemoveBook"
+    />
   </div>
 </template>
-s
+
 <script>
 
 import {mapGetters, mapActions} from 'vuex';
@@ -19,7 +22,6 @@ export default {
     },
     data : function (){
       return{
-        savedBook: null
       }
     },
 
@@ -30,11 +32,11 @@ export default {
     },
    methods:{
       handleRemoveBook : function (id){
-        this.removeBook({id});
+        this.unsaveBook(id);
       },
 
       ...mapActions({
-         removeBook : 'book/removeBook'
+         unsaveBook : 'book/unsaveBook'
       })
    }
 
