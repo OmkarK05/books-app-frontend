@@ -4,6 +4,7 @@
     vs-justify="flex-start"
     vs-align="center"
   >
+    <!--    TODO: delete dead code -->
     <!--    <vs-col-->
     <!--      vs-lg="6"-->
     <!--      vs-sm="6"-->

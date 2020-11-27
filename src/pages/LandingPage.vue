@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--  TOO: Use movies and books AppCard from this component directly, remove or delete app-books & app-movies -->
     <vs-row>
       <app-books />
     </vs-row>
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+// TODO remove unused imports
 // import gql from 'graphql-tag';
 import {mapActions} from 'vuex';
 import {mapGetters} from 'vuex';

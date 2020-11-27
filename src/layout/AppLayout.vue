@@ -19,6 +19,7 @@
         <app-header />
       </vs-row>
       <vs-row>
+        <!-- TODO: remove use of AppSection, add router-view directly and style the row instead -->
         <app-section />
       </vs-row>
     </vs-col>
@@ -41,6 +42,7 @@ export default {
   },
   data: function () {
     return {
+      // TODO delete isExtend comment 
       // isExtend: false,
       sidebarContent: [{
         label: 'Home',
@@ -72,6 +74,7 @@ export default {
         }
       ],
 
+      // TODO: move books to Movies.json and add genre & rating keys
       books: [
         {
           name: 'Long Bright River: A Novel',
@@ -130,6 +133,7 @@ export default {
   },
 
   methods: {
+    // TODO remove dead code
     // handleExtend: function (extend) {
     //   this.isExtend = extend;
     // },

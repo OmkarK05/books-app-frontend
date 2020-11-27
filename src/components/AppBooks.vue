@@ -7,6 +7,7 @@
     >
       Books
     </vs-row>
+    <!--    TODO: send type prop to AppCard -->
     <app-card
       :card-data="books"
       @handleAction="handleSave"
@@ -36,6 +37,7 @@ export default {
   },
   
   methods: {
+    // TODO: move saveBook action to saveItem.js
     ...mapActions({
       save: 'book/saveBook',
     })

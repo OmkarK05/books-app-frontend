@@ -35,6 +35,7 @@
           </div>
           <div slot="footer">
             <vs-row vs-justify="flex-end">
+              <!--  TODO: remove === true for item['saved'] -->
               <vs-button
                 type="gradient"
                 color="danger"
@@ -70,12 +71,14 @@ export default {
         return [];
       }
     }
+  //  TODO: accept type prop from parent component
   },
   mounted: function () {
     console.log(this.cardData);
   },
   methods: {
     handleSaveBook: function (id) {
+      // TODO: emit type of card with the event
       this.$emit('handleAction', id);
     }
 

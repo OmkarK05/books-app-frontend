@@ -5,6 +5,7 @@
 </template>
 
 <script>
+// TODO: delete unused component
 export default {
     name : 'AppSection',
 }
