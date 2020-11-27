@@ -19,8 +19,12 @@
         <app-header />
       </vs-row>
       <vs-row>
-        <!-- TODO: remove use of AppSection, add router-view directly and style the row instead -->
-        <app-section />
+        <vs-col
+          vs-w="12"
+          class="section-container"
+        >
+          <router-view />
+        </vs-col>
       </vs-row>
     </vs-col>
   </vs-row>
@@ -28,22 +32,20 @@
 
 <script>
 import AppHeader from './AppHeader';
-import AppSection from './AppSection';
 import AppSidebar from './AppSidebar';
 import { mapActions } from 'vuex';
 import movies from '../assets/json/Movies.json';
+import books from '../assets/json/Books.json';
+
 
 export default {
   name: 'AppLayout',
   components: {
     AppHeader,
-    AppSection,
     AppSidebar,
   },
   data: function () {
     return {
-      // TODO delete isExtend comment 
-      // isExtend: false,
       sidebarContent: [{
         label: 'Home',
         icon: 'home',
@@ -74,49 +76,6 @@ export default {
         }
       ],
 
-      // TODO: move books to Movies.json and add genre & rating keys
-      books: [
-        {
-          name: 'Long Bright River: A Novel',
-          author: 'LIZ MOORE',
-          image: 'https://hips.hearstapps.com/vader-prod' +
-              '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
-          id: 'book1',
-          saved: false
-        },
-        {
-          name: 'A Long Petal of the Sea: A Novel',
-          author: 'ISABEL ALLENDE',
-          image: 'https://hips.hearstapps.com' +
-              '/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
-          id: 'book2',
-          saved: false
-        },
-        {
-          name: 'To Kill a Mockingbird',
-          author: 'Harper Lee',
-          image: 'https://hips.hearstapps.com/vader-prod' +
-              '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
-          id: 'book3',
-          saved: false
-        },
-        {
-          name: 'The Lord of the Rings',
-          author: 'LIZ MOORE',
-          image: 'https://hips.hearstapps.com/vader-prod' +
-              '.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*', id: 'book4',
-          saved: false
-        },
-        {
-          name: ' Harry Potter and the Philosopher’s Stone',
-          author: 'J.K. Rowling', image: 'https://hips.hearstapp' +
-              's.com/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*',
-          id: 'book5',
-          saved: false
-        }
-
-      ],
-
       user: {
         firstName: 'Omkar',
         lastName: 'Kesarkhane',
@@ -124,7 +83,6 @@ export default {
         dateOfBirth: '1998-12-06',
         email: 'omkesarkhane@gmail.com',
       }
-
     };
   },
 
@@ -133,19 +91,14 @@ export default {
   },
 
   methods: {
-    // TODO remove dead code
-    // handleExtend: function (extend) {
-    //   this.isExtend = extend;
-    // },
-
     ...mapActions({
       setBooks: 'book/setBooks',
       setUserDetails: 'user/setUserDetails',
-      setMovies : 'movie/setMovies'
+      setMovies: 'movie/setMovies'
     }),
 
     setInitialData: function () {
-      this.setBooks(this.books);
+      this.setBooks(books);
       this.setUserDetails(this.user);
       this.setMovies(movies);
     }
@@ -192,4 +145,10 @@ export default {
   bottom: 0;
   background-color: rgb(195, 197, 194);
 }
+
+.section-container {
+  width: 100%;
+  height: 100%;
+}
+
 </style>

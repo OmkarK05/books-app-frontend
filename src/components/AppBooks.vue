@@ -7,8 +7,8 @@
     >
       Books
     </vs-row>
-    <!--    TODO: send type prop to AppCard -->
     <app-card
+      type="book"
       :card-data="books"
       @handleAction="handleSave"
     />
@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 import { mapGetters } from 'vuex';
 import AppCard from './AppCard';
 import saveItem from '../mixins/saveItem';
@@ -26,20 +25,10 @@ export default {
   components: {
     AppCard,
   },
-  mixins:[saveItem],
+  mixins: [saveItem],
   computed: {
     ...mapGetters({
       books: 'book/allBooks',
-    })
-  },
-  mounted: function () {
-    console.log(this.books);
-  },
-  
-  methods: {
-    // TODO: move saveBook action to saveItem.js
-    ...mapActions({
-      save: 'book/saveBook',
     })
   },
 };

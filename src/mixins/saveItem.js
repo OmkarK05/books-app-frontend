@@ -1,9 +1,12 @@
-// TODO: import mapActions and use saveBook & saveMovie actions from mixin directly
-
+import { mapActions } from 'vuex';
 export default {
   methods: {
-    handleSave: function (id) {
-      this.save(id);
+    ...mapActions({
+      saveBook: 'book/saveBook',
+      saveMovie : 'movie/saveMovie'
+    }),
+    handleSave: function (id, type) {
+      type === 'movie' ? this.saveMovie(id) : this.saveBook(id);
     },
   }
 };

@@ -4,7 +4,6 @@ import book from './components/book';
 import user from './components/user';
 import movie from './components/movies';
 
-
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({

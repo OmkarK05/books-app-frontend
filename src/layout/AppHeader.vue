@@ -4,22 +4,6 @@
     vs-justify="flex-start"
     vs-align="center"
   >
-    <!--    TODO: delete dead code -->
-    <!--    <vs-col-->
-    <!--      vs-lg="6"-->
-    <!--      vs-sm="6"-->
-    <!--      vs-xs="12"-->
-    <!--    >-->
-    <!--      <span>-->
-    <!--        <vs-input-->
-    <!--          v-model="query"-->
-    <!--          class="search-input"-->
-    <!--          icon="search"-->
-    <!--          icon-after="true"-->
-    <!--          placeholder="Search"-->
-    <!--        />-->
-    <!--      </span>-->
-    <!--    </vs-col>-->
     <vs-col
       vs-lg="12"
       vs-sm="12"
@@ -47,12 +31,6 @@
           />
         </div>
         <div>{{ userDetails.firstName }}</div>
-        <!--        <div class="icon-container-down">-->
-        <!--          <vs-icon-->
-        <!--            icon="keyboard_arrow_down"-->
-        <!--            size="18px"-->
-        <!--          />-->
-        <!--        </div>-->
       </div>
     </vs-col>
   </vs-row>

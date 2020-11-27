@@ -3,8 +3,8 @@
     <vs-row>
       <div>Movies</div>
     </vs-row>
-    <!--    TODO: send 'type' prop to AppCard -->
     <app-card
+      type="movie"
       :card-data="getMovies"
       @handleAction="handleSave"
     />
@@ -28,12 +28,6 @@ export default {
       getMovies: 'movie/getAllMovies'
     })
   },
-  methods: {
-    // TODO: move saveMovie action to mixin saveItem.js
-    ...mapActions({
-      save : 'movie/saveMovie'
-    })
-  }
 };
 </script>
 

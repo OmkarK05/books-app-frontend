@@ -133,7 +133,7 @@ export default {
 
   methods: {
     setData: function (userDetails) {
-      this.userDetails = userDetails;
+      this.userData = userDetails;
     },
 
     handleSave: function () {

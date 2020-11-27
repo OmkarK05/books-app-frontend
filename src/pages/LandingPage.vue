@@ -12,10 +12,6 @@
 </template>
 
 <script>
-// TODO remove unused imports
-// import gql from 'graphql-tag';
-import {mapActions} from 'vuex';
-import {mapGetters} from 'vuex';
 import AppMovies from '../components/AppMovies';
 import AppBooks from '../components/AppBooks';
 
@@ -58,66 +54,3 @@ export default {
 }
 
 </style>
-
-    // apollo:{
-    //     //vue apollo options here
-    //   booksData : {
-    //     query: gql`query{
-    //      books{
-    //       name
-    //      }
-    //     }`,
-    //     update: result => {
-    //       console.log(result);
-    //       return result.books;
-    //     },
-    //   },
-    // },
-    // data: function (){
-    //   return{
-    //     booksData: null,
-    //   }
-    // },
-<!--<vs-card&ndash;&gt;-->
-<!--            class="cardx"-->
-<!--            fixed-height-->
-<!--          >-->
-<!--            <div slot="header">-->
-<!--              <h3>-->
-<!--                {{ book.name }}-->
-<!--              </h3>-->
-<!--            </div>-->
-<!--            <div slot="media">-->
-<!--              <img-->
-<!--                class="book-image"-->
-<!--                :src="book.image"-->
-<!--                alt="Book Image"-->
-<!--              >-->
-<!--            </div>-->
-<!--            <div>-->
-<!--              <span>-->
-<!--              </span>-->
-<!--            </div>-->
-<!--            <div slot="footer">-->
-<!--              <vs-row>-->
-<!--                &#45;&#45;{{ book.author }}-->
-<!--              </vs-row>-->
-<!--              <vs-row vs-justify="flex-end">-->
-<!--                <vs-button-->
-<!--                  type="gradient"-->
-<!--                  color="danger"-->
-<!--                  icon="favorite"-->
-<!--                  @click="handleSaveBook(book.id)"-->
-<!--                />-->
-<!--                <vs-button-->
-<!--                  color="primary"-->
-<!--                  icon="turned_in_not"-->
-<!--                />-->
-<!--                <vs-button-->
-<!--                  color="rgb(230,230,230)"-->
-<!--                  color-text="rgb(50,50,50)"-->
-<!--                  icon="settings"-->
-<!--                />-->
-<!--              </vs-row>&ndash;&gt;-->
-<!--            </div>&ndash;&gt;-->
-<!--          </vs-card>-->

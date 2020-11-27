@@ -35,22 +35,12 @@
           </div>
           <div slot="footer">
             <vs-row vs-justify="flex-end">
-              <!--  TODO: remove === true for item['saved'] -->
               <vs-button
                 type="gradient"
                 color="danger"
-                :icon="item.saved === true ? 'delete' : 'favorite'"
+                :icon="item.saved ? 'delete' : 'favorite'"
                 @click="handleSaveBook(item.id)"
               />
-              <!--              <vs-button-->
-              <!--                color="primary"-->
-              <!--                icon="turned_in_not"-->
-              <!--              />-->
-              <!--              <vs-button-->
-              <!--                color="rgb(230,230,230)"-->
-              <!--                color-text="rgb(50,50,50)"-->
-              <!--                icon="settings"-->
-              <!--              />-->
             </vs-row>
           </div>
         </vs-card>
@@ -63,23 +53,27 @@
 
 export default {
   name: 'AppCard',
-  components: {
-  },
+  components: {},
   props: {
     cardData: {
-      type: Array, default: function () {
+      type: Array,
+      default: function () {
         return [];
-      }
+      },
+    },
+    type: {
+      type: String,
+      default: function () {
+        return '';
+      },
     }
-  //  TODO: accept type prop from parent component
   },
   mounted: function () {
     console.log(this.cardData);
   },
   methods: {
     handleSaveBook: function (id) {
-      // TODO: emit type of card with the event
-      this.$emit('handleAction', id);
+      this.$emit('handleAction', id, this.type);
     }
 
   }

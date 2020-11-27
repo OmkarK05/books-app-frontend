@@ -1,48 +1,50 @@
 <template>
   <div class="container">
-    <vs-row>
-      Add New Book
-    </vs-row>
-    <vs-row
-      vs-justify="center"
-      vs-align="center"
-    >
-      <vs-col vs-w="12">
-        <vs-input
-          v-model="name"
-          class="name-input"
-          label-placeholder="Name"
-        />
-      </vs-col>
-      <vs-col vs-w="12">
-        <vs-input
-          v-model="author"
-          class="author-input"
-          label-placeholder="Author"
-        />
-      </vs-col>
-      <vs-col
-        vs-w="12"
-        class="description"
+    <div class="form-container">
+      <vs-row vs-justify="center">
+        Add New Book
+      </vs-row>
+      <vs-row
+        vs-justify="center"
+        vs-align="center"
       >
-        <vs-textarea
-          v-model="description"
-          class="description-input"
-          height="100px"
-          placeholder="Description"
-        />
-      </vs-col>
-      <vs-col
-        vs-w="12"
-      >
-        <vs-button
-          class="btn"
-          @click="handleSubmit"
+        <vs-col vs-w="12">
+          <vs-input
+            v-model="name"
+            class="name-input"
+            label-placeholder="Name"
+          />
+        </vs-col>
+        <vs-col vs-w="12">
+          <vs-input
+            v-model="author"
+            class="author-input"
+            label-placeholder="Author"
+          />
+        </vs-col>
+        <vs-col
+          vs-w="12"
+          class="description"
         >
-          Add Book
-        </vs-button>
-      </vs-col>
-    </vs-row>
+          <vs-textarea
+            v-model="description"
+            class="description-input"
+            height="100px"
+            placeholder="Description"
+          />
+        </vs-col>
+        <vs-col
+          vs-w="12"
+        >
+          <vs-button
+            class="btn"
+            @click="handleSubmit"
+          >
+            Add Book
+          </vs-button>
+        </vs-col>
+      </vs-row>
+    </div>
   </div>
 </template>
 
@@ -94,11 +96,14 @@ export default {
   margin: 0 auto;
 }
 
+.form-container{
+  width: fit-content;
+}
 .name-input, .author-input {
   width: 100%;
   padding-top: 15px;
-
 }
+
 
 .description {
   padding-top: 30px;
@@ -106,6 +111,7 @@ export default {
 
 .description-input {
   font-size: 12px;
+  max-width: 100%;
 }
 
 .btn {
