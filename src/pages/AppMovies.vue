@@ -2,8 +2,7 @@
   <div>
     <vs-row>
       <filter-bar
-        type="movie"
-        @activeFilters="activeFilters"
+        @handle-change-filters="activeFilters"
       />
     </vs-row>
     <vs-row>
@@ -12,7 +11,7 @@
     <app-card
       type="movie"
       :card-data="filteredMovies"
-      @handleAction="handleSave"
+      @handle-action="handleSave"
     />
     <vs-row />
   </div>

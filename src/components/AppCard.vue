@@ -73,7 +73,7 @@ export default {
   },
   methods: {
     handleSaveBook: function (id) {
-      this.$emit('handleAction', id, this.type);
+      this.$emit('handle-action', id, this.type);
     }
 
   }

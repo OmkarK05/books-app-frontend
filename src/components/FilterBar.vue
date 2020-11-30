@@ -43,7 +43,7 @@ export default {
 
   watch: {
     filtersActive: function (curr) {
-      this.$emit('activeFilters', curr, this.type);
+      this.$emit('handle-change-filters', curr, this.type);
     }
   }
 

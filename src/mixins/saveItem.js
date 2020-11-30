@@ -15,7 +15,7 @@ export default {
       type === 'movie' ? this.saveMovie(id) : this.saveBook(id);
     },
 
-    activeFilters: function (filters, type) {
+    activeFilters: function (filters) {
       this.activatedFilters = filters;
     },
 

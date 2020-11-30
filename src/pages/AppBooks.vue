@@ -1,8 +1,7 @@
 <template>
   <div>
     <filter-bar
-      type="book"
-      @activeFilters="activeFilters"
+      @handle-change-filters="activeFilters"
     />
     <vs-row
       vs-w="12"
@@ -14,7 +13,7 @@
     <app-card
       type="book"
       :card-data="filteredBooks"
-      @handleAction="handleSave"
+      @handle-action="handleSave"
     />
   </div>
 </template>
