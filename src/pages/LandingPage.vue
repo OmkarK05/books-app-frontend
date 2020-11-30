@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!--  TOO: Use movies and books AppCard from this component directly, remove or delete app-books & app-movies -->
+    <!--  TODO: Use movies and books AppCard from this component directly, remove or delete app-books & app-movies -->
     <vs-row>
       <app-books />
     </vs-row>

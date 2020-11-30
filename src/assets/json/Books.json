@@ -5,7 +5,7 @@
     "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*",
     "id": "book1",
     "rating": 7.2,
-    "genre": [
+    "options": [
       "Animation",
       "Adventure",
       "Comedy"
@@ -18,9 +18,8 @@
     "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*",
     "id": "book2",
     "rating": 7.2,
-    "genre": [
+    "options": [
       "Animation",
-      "Adventure",
       "Comedy"
     ],
     "saved": false
@@ -31,7 +30,7 @@
     "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*",
     "id": "book3",
     "rating": 7.2,
-    "genre": [
+    "options": [
       "Animation",
       "Adventure",
       "Comedy"
@@ -44,7 +43,7 @@
     "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*",
     "id": "book4",
     "rating": 7.2,
-    "genre": [
+    "options": [
       "Animation",
       "Adventure",
       "Comedy"
@@ -57,11 +56,9 @@
     "image": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1578603226-51dNGcQl4HL.jpg?crop=1xw:0.993xh;center,top&resize=480:*",
     "id": "book5",
     "rating": 7.2,
-    "genre": [
+    "options": [
       "Animation",
-      "Adventure",
       "Comedy"
-
     ],
     "saved": false
   }

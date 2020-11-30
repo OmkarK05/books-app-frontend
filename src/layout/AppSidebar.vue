@@ -2,41 +2,6 @@
   <div
     class="container"
   >
-    <!--    <vs-row-->
-    <!--      class="top-row"-->
-    <!--      vs-justify="center"-->
-    <!--      vs-align="flex-start"-->
-    <!--    >-->
-    <!--      <vs-col-->
-    <!--        class="top"-->
-    <!--        vs-w="12"-->
-    <!--        vs-type="flex"-->
-    <!--        vs-align="center"-->
-    <!--        vs-justify="flex-start"-->
-    <!--      >-->
-    <!--        <div class="option">-->
-    <!--          <span class="icon">-->
-    <!--            <vs-icon-->
-    <!--              icon="import_contacts"-->
-    <!--              size="22px"-->
-    <!--            />-->
-    <!--          </span>-->
-    <!--        </div>-->
-
-    <!--        <div-->
-    <!--          class="option"-->
-    <!--          @click="handleExtend"-->
-    <!--        >-->
-    <!--          <span class="icon">-->
-    <!--            <vs-icon-->
-    <!--              class="move-icon"-->
-    <!--              icon="keyboard_arrow_right"-->
-    <!--              size="22px"-->
-    <!--            />-->
-    <!--          </span>-->
-    <!--        </div>-->
-    <!--      </vs-col>-->
-    <!--    </vs-row>-->
     <vs-row class="bottom-row">
       <vs-col
         class="center"
