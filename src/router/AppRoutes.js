@@ -4,6 +4,9 @@ import SavedBooks from '../pages/SavedBooks';
 import AddBook from '../pages/AddBook';
 import Group from '../pages/AppGroup';
 import User from '../pages/AppUser';
+import Books from '../pages/AppBooks';
+import Movies from '../pages/AppMovies';
+
 
 
 let routes = [
@@ -12,6 +15,9 @@ let routes = [
   { path: '/add-book', component: AddBook },
   { path: '/group', component: Group },
   { path: '/user', component: User },
+  { path: '/books', component: Books },
+  { path: '/movies', component: Movies },
+
 
 ];
 

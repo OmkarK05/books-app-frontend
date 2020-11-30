@@ -4,7 +4,7 @@
         "image": "https://api.androidhive.info/json/movies/1.jpg",
         "rating": 8.3,
         "author": 2014,
-        "genre": ["Action", "Drama", "Sci-Fi"],
+        "options": ["Action", "Drama", "Sci-Fi"],
         "saved" : false
     },
     {
@@ -13,7 +13,7 @@
         "image": "https://api.androidhive.info/json/movies/2.jpg",
         "rating": 8,
         "author": 2009,
-        "genre": ["Action", "Sci-Fi", "Thriller"],
+        "options": ["Action", "Sci-Fi", "Thriller"],
         "saved" : false
 
     },
@@ -23,7 +23,7 @@
         "image": "https://api.androidhive.info/json/movies/3.jpg",
         "rating": 6.3,
         "author": 2014,
-        "genre": ["Action", "Adventure", "Sci-Fi"],
+        "options": ["Action", "Adventure", "Sci-Fi"],
         "saved" : false
 
     },
@@ -33,7 +33,7 @@
         "image": "https://api.androidhive.info/json/movies/4.jpg",
         "rating": 8.4,
         "author": 2014,
-        "genre": ["Action", "Sci-Fi", "Thriller"],
+        "options": ["Action", "Sci-Fi", "Thriller"],
         "saved" : false
 
     },
@@ -43,7 +43,7 @@
         "image": "https://api.androidhive.info/json/movies/5.jpg",
         "rating": 7.8,
         "author": 2004,
-        "genre": ["Drama", "Thriller"],
+        "options": ["Drama", "Thriller"],
         "saved" : false
     },
     {
@@ -52,7 +52,7 @@
         "image": "https://api.androidhive.info/json/movies/6.jpg",
         "rating": 7.7,
         "author": 2003,
-        "genre": ["Action", "Drama", "History"],
+        "options": ["Action", "Drama", "History"],
         "saved" : false
     },
     {
@@ -61,7 +61,7 @@
         "image": "https://api.androidhive.info/json/movies/7.jpg",
         "rating": 7.3,
         "author": 2014,
-        "genre": ["Action", "Adventure", "Fantasy"],
+        "options": ["Action", "Adventure", "Fantasy"],
         "saved" : false
     },
     {
@@ -70,7 +70,7 @@
         "image": "https://api.androidhive.info/json/movies/8.jpg",
         "rating": 7.9,
         "author": 2010,
-        "genre": ["Action", "Drama", "Sci-Fi"],
+        "options": ["Action", "Drama", "Sci-Fi"],
         "saved" : false
     },
     {
@@ -79,7 +79,7 @@
         "image": "https://api.androidhive.info/json/movies/9.jpg",
         "rating": 8.3,
         "author": 2013,
-        "genre": ["Animation", "Comedy", "Family"],
+        "options": ["Animation", "Comedy", "Family"],
         "saved" : false
     },
     {
@@ -88,7 +88,7 @@
         "image": "https://api.androidhive.info/json/movies/10.jpg",
         "rating": 6.7,
         "author": 2009,
-        "genre": ["Horror", "Thriller"],
+        "options": ["Horror", "Thriller"],
         "saved" : false
     },
     {
@@ -97,7 +97,7 @@
         "image": "https://api.androidhive.info/json/movies/11.jpg",
         "rating": 7.6,
         "author": 2013,
-        "genre": ["Animation", "Comedy", "Family"],
+        "options": ["Animation", "Comedy", "Family"],
         "saved" : false
     },
     {
@@ -106,7 +106,7 @@
         "image": "https://api.androidhive.info/json/movies/12.jpg",
         "rating": 8.2,
         "author": 2003,
-        "genre": ["Action", "Crime"],
+        "options": ["Action", "Crime"],
         "saved" : false
     },
     {
@@ -115,7 +115,7 @@
         "image": "https://api.androidhive.info/json/movies/13.jpg",
         "rating": 7.2,
         "author": 1998,
-        "genre": ["Animation", "Adventure", "Comedy"],
+        "options": ["Animation", "Adventure", "Comedy"],
         "saved" : false
     },
     {
@@ -124,7 +124,7 @@
         "image": "https://api.androidhive.info/json/movies/14.jpg",
         "rating": 8.9,
         "author": 1972,
-        "genre": ["Comedy"],
+        "options": ["Comedy"],
         "saved" : false
     },
     {
@@ -133,6 +133,6 @@
         "image": "https://api.androidhive.info/json/movies/15.jpg",
         "rating": 8.2,
         "author": 2010,
-        "genre": ["Animation", "Adventure", "Family"],
+        "options": ["Animation", "Adventure", "Family"],
         "saved" : false
     }]

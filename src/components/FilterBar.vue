@@ -1,32 +1,39 @@
 <template>
-  <div class="">
-    <ul>
-      <li
-        v-for="(filter, index) in filters"
-        :key="index"
-      >
-        <vs-checkbox
-          v-model="filtersActive"
-          :vs-value="filter"
+  <vs-row
+    vs-justify="flex-end"
+    vs-align="center"
+    class="list-container"
+  >
+    <vs-col vs-w="12">
+      Filters
+    </vs-col>
+    <vs-col vs-w="12">
+      <ul>
+        <li
+          v-for="(filter, index) in filters"
+          :key="index"
         >
-          {{ filter }}
-        </vs-checkbox>
-      </li>
-    </ul>
-  </div>
+          <vs-checkbox
+            v-model="filtersActive"
+            :vs-value="filter"
+          >
+            {{ filter }}
+          </vs-checkbox>
+        </li>
+      </ul>
+    </vs-col>
+  </vs-row>
 </template>
 
 <script>
 export default {
   name: 'FilterBar',
-  // props: {
-  //   filters: {
-  //     type: Array,
-  //     default: function () {
-  //       return [];
-  //     }
-  //   }
-  // },
+  props: {
+    type: {
+      type: String,
+      default: '',
+    }
+  },
   data: function () {
     return {
       filtersActive: [],
@@ -36,8 +43,7 @@ export default {
 
   watch: {
     filtersActive: function (curr) {
-      console.log(curr);
-      this.$emit('activeFilters', curr);
+      this.$emit('activeFilters', curr, this.type);
     }
   }
 
@@ -45,5 +51,12 @@ export default {
 </script>
 
 <style scoped>
-
+.list-container {
+ padding: 15px 0;
+}
+ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
 </style>

@@ -1,6 +1,11 @@
 import { mapActions } from 'vuex';
 
 export default {
+  data: function () {
+    return {
+      activatedFilters: [],
+    };
+  },
   methods: {
     ...mapActions({
       saveBook: 'book/saveBook',
@@ -10,19 +15,18 @@ export default {
       type === 'movie' ? this.saveMovie(id) : this.saveBook(id);
     },
 
-    activeFilters: function (filters) {
-      console.log('filtered');
-      if (filters.length !== 0) {
-        this.newBooks = this.books.filter((book, i) => {
-          return this.checkFilter(book.options, filters);  // o(n)^2
+    activeFilters: function (filters, type) {
+      this.activatedFilters = filters;
+    },
+
+    filterData: function (data) {
+      if (this.activatedFilters.length !== 0) {
+        return data.filter((item, i) => {
+          return this.activatedFilters.every(filter => item.options.includes(filter));  // o(n)^2
         });
       } else {
-        this.newBooks = this.books;
+        return data;
       }
     },
-    checkFilter: function (genres, filters) {
-      return filters.every(filter => genres.includes(filter));
-    },
-  }
-
+  },
 };

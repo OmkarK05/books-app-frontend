@@ -46,13 +46,27 @@ export default {
   },
   data: function () {
     return {
-      sidebarContent: [{
-        label: 'Home',
-        icon: 'home',
-        id: 'home-tab',
-        iconSize: '18px',
-        link: '/',
-      },
+      sidebarContent: [
+        {
+          label: 'Home',
+          icon: 'home',
+          id: 'home-tab',
+          iconSize: '18px',
+          link: '/',
+        },
+        {
+          label: 'Books',
+          icon: 'books',
+          id: 'books-tab',
+          iconSize: '18px',
+          link: '/books',
+        }, {
+          label: 'Movies',
+          icon: 'movies',
+          id: 'movie-tab',
+          iconSize: '18px',
+          link: '/movies',
+        },
         {
           label: 'My Library',
           icon: 'library_books',

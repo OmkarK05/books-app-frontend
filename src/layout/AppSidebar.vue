@@ -55,18 +55,6 @@ export default {
       },
     },
   },
-  data: function () {
-    return {
-      // isExtend: false,
-    };
-  }
-  ,
-  methods: {
-    // handleExtend: function () {
-    //   this.isExtend = ! this.isExtend;
-    //   this.$emit('extendSidebar', this.isExtend);
-    // }
-  }
 }
 ;
 </script>
