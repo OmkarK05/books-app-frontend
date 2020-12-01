@@ -32,7 +32,8 @@ export default {
     type: {
       type: String,
       default: '',
-    }
+    },
+    availableFilters: {},
   },
   data: function () {
     return {

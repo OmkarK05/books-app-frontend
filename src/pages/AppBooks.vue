@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--    TODO send a list of filters using getFilters from mixin -->
     <filter-bar
       @handle-change-filters="activeFilters"
     />
@@ -34,9 +35,11 @@ export default {
   data: function () {
     return {
       newBooks: [],
+    //   TODO add a data property for list of available filters && call getFilters in mounted
     };
   },
   computed: {
+    // TODO remove the use of filteredBooks computed prop & send availableFilter list to filterData method
     filteredBooks: function () {
       return this.filterData(this.books);
     },
