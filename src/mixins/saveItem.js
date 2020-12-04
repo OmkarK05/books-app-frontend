@@ -6,14 +6,8 @@ export default {
       //TODO create a method getFilters which accepts list of books/movies and return a list of filters based on
       // genres
       //TODO remove activatedFilters
-      activatedFilters: [],
-    //  TODO save filters like so
-    //   filters: [
-    //     {
-    //       name: 'Animation',
-    //       value: false,
-    //     }
-    //   ]
+      filters: [],
+      items: [],
     };
   },
   methods: {
@@ -21,26 +15,82 @@ export default {
       saveBook: 'book/saveBook',
       saveMovie: 'movie/saveMovie'
     }),
+
     handleSave: function (id, type) {
       type === 'movie' ? this.saveMovie(id) : this.saveBook(id);
     },
 
-    // TODO: remove activeFilters
-    activeFilters: function (filters) {
-      this.activatedFilters = filters;
+    setChangedFilters: function (changedFilters, filter) {
+
+      this.filters = changedFilters;
+
+      console.log(changedFilters);
+      console.log(changedFilters[0].isActive);
+      
+      // this.filters.map((filter) => filter.name === filter ? !filter.isActive : null);
+
+      console.log(this.filters[0].isActive);
+      console.log(changedFilters[0].isActive);
+
+      let ifActiveFilters = false;
+      for (let i = 0; i < this.filters.length; i++) {
+        if (this.filters[i]['isActive']) {
+          ifActiveFilters = true;
+        }
+      }
+
+
+      // this.filters = changedFilters;
+      //
+      // let checkFilters = (item) => {
+      //   changedFilters.forEach((filter) => {
+      //     if (filter.isActive) {
+      //       console.log(filter.isActive);
+      //       if (item.options.includes(filter.name)) {
+      //         return true;
+      //       }
+      //     }
+      //
+      //   });
+      // };
+      //
+      // if (! ifActiveFilters) {
+      //   this.items = this.books;
+      //   return;
+      // } else {
+      //   this.items = this.items.filter((item) => {
+      //     console.log(checkFilters(item));
+      //   });
+      // }
+
+
     },
 
-    // TODO send list of filters to this method and use that to filter out the selected movies/books
-    filterData: function (data, filters) {
-      // TODO simplify the if condtion to ! filters.length
-      if (this.activatedFilters.length !== 0) {
-        // TODO remove unused index i
-        return data.filter((item, i) => {
-          return this.activatedFilters.every(filter => item.options.includes(filter));  // o(n)^2
+    getFilters: function (data) {
+      let genreArray = [];
+      if (! this.filters.length) {
+        data.map(item => {
+          item.options.forEach((option) => {
+            if (! genreArray.includes(option)) {
+              genreArray.push(option);
+            }
+          });
         });
+
+        let newFilters = genreArray.map((genre) => {
+          return {
+            name: genre,
+            isActive: false
+          };
+        });
+
+        this.filters = [...newFilters];
+        return [...newFilters];
+
       } else {
-        return data;
+        console.log('data filters returned');
+        return this.filters;
       }
-    },
+    }
   },
 };

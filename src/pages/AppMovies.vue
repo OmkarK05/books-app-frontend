@@ -2,6 +2,7 @@
   <div>
     <vs-row>
       <filter-bar
+        :availableFilters="getFilters(movies)"
         @handle-change-filters="activeFilters"
       />
     </vs-row>

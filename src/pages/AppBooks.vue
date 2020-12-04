@@ -2,7 +2,8 @@
   <div>
     <!--    TODO send a list of filters using getFilters from mixin -->
     <filter-bar
-      @handle-change-filters="activeFilters"
+      :available-filters="getFilters(books)"
+      @handle-filters-change="setChangedFilters"
     />
     <vs-row
       vs-w="12"
@@ -13,7 +14,7 @@
     </vs-row>
     <app-card
       type="book"
-      :card-data="filteredBooks"
+      :card-data="items"
       @handle-action="handleSave"
     />
   </div>
@@ -35,17 +36,18 @@ export default {
   data: function () {
     return {
       newBooks: [],
-    //   TODO add a data property for list of available filters && call getFilters in mounted
+      //TODO add a data property for  of available filters && call getFilters in mounted
     };
   },
   computed: {
-    // TODO remove the use of filteredBooks computed prop & send availableFilter list to filterData method
-    filteredBooks: function () {
-      return this.filterData(this.books);
-    },
     ...mapGetters({
       books: 'book/allBooks',
     })
+  },
+  watch: {
+    books : function (books){
+       this.items = books;
+    }
   },
 };
 </script>

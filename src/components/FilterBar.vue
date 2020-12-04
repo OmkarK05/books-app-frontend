@@ -12,12 +12,13 @@
         <li
           v-for="(filter, index) in filters"
           :key="index"
+          @click="handleCheckBoxClick"
         >
           <vs-checkbox
-            v-model="filtersActive"
-            :vs-value="filter"
+            v-model="filter.isActive"
+            :vs-value="filter.isActive"
           >
-            {{ filter }}
+            {{ filter.name }}
           </vs-checkbox>
         </li>
       </ul>
@@ -29,33 +30,47 @@
 export default {
   name: 'FilterBar',
   props: {
+    availableFilters: {
+      type: Array,
+      default: function () {
+        return [];
+      },
+    },
     type: {
       type: String,
       default: '',
     },
-    availableFilters: {},
   },
   data: function () {
     return {
-      filtersActive: [],
-      filters: ['Animation', 'Adventure', 'Family']
+      filters: [],
     };
   },
-
   watch: {
-    filtersActive: function (curr) {
-      this.$emit('handle-change-filters', curr, this.type);
+    availableFilters: function (filters) {
+      this.filters = [...filters];
     }
-  }
+  },
+  beforeMount () {
+    this.filters = this.availableFilters;
+  },
+  methods: {
+    handleCheckBoxClick: function () {
+      this.$emit('handle-filters-change', [...this.filters]);
+    }
+  },
+
 
 };
 </script>
 
+
 <style scoped>
 .list-container {
- padding: 15px 0;
+  padding: 15px 0;
 }
-ul{
+
+ul {
   list-style: none;
   display: flex;
   flex-direction: row;
